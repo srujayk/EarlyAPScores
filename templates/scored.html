@@ -5,19 +5,21 @@
 {% endblock %}
 
 {% block main %}
-    
+
+    {% for exam in exams %}
+    <h2> {{exam[0]}} ({{exam[1]}}) </h2>
     <table class="table table-striped" style="width:100%">
         <tr>
-            <th>Exam</th>
-            <th>Score</th>
+            <th style="width:70%">Exam</th>
+            <th style="width:30%">Score</th>
         </tr>
-        {% for exam in exams %}
-            {% set outer_loop = loop %}
-            <tr>
-                <td>{{ exam }}</td>
-                <td>{{ scores[outer_loop.index - 1] }}</td>
-            </tr>
+        {% for score in exam[2] %}
+        <tr>
+            <td style="width:70%">{{ score[0] }}</td>
+            <td style="width:30%">{{ score[1] }}</td>
+        </tr>
         {% endfor %}
     </table>
-    
+    {% endfor %}
+
 {% endblock %}
