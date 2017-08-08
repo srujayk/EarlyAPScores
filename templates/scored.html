@@ -1,0 +1,23 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    My Scores
+{% endblock %}
+
+{% block main %}
+    
+    <table class="table table-striped" style="width:100%">
+        <tr>
+            <th>Exam</th>
+            <th>Score</th>
+        </tr>
+        {% for exam in exams %}
+            {% set outer_loop = loop %}
+            <tr>
+                <td>{{ exam }}</td>
+                <td>{{ scores[outer_loop.index - 1] }}</td>
+            </tr>
+        {% endfor %}
+    </table>
+    
+{% endblock %}
